@@ -10,31 +10,52 @@ public class PlayerMove : MonoBehaviour
     public CheckGround checkGround; 
     Rigidbody2D rd2D;
 
-    // Start is called before the first frame update
+    public SpriteRenderer spriteRenderer;
+
+    public Animator animator;
+
     void Start()
     {
         rd2D = GetComponent<Rigidbody2D>();
+
+        if (spriteRenderer == null)
+        {
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if(Input.GetKey("d") || Input.GetKey("right"))
         {
             rd2D.velocity = new Vector2(runSpeed, rd2D.velocity.y);
+            spriteRenderer.flipX = false;
+            animator.SetBool("Run", true);
         }
 
         else if(Input.GetKey("a") || Input.GetKey("left"))
         {
             rd2D.velocity = new Vector2(-runSpeed, rd2D.velocity.y);
+            spriteRenderer.flipX = true;
+            animator.SetBool("Run", true);
         }
         else
         {
             rd2D.velocity = new Vector2(0, rd2D.velocity.y);
+            animator.SetBool("Run", false);
         }
         if (Input.GetKey("space") && checkGround.isGrounded)
         {
            rd2D.velocity = new Vector2(rd2D.velocity.x, jumpSpeed); 
+        }
+        if (checkGround.isGrounded == false)
+        {
+            animator.SetBool("Jump", true);
+            animator.SetBool("Jump", false);
+        }
+        if (checkGround.isGrounded == true)
+        {
+            animator.SetBool("Jump", false);
         }
     }
 }

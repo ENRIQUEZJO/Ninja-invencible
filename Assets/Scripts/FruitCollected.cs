@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class FruitCollected : MonoBehaviour
 {
-  private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
             
-            FindObjectOfType<FruitManager>().AllFruitCollected();
+            // 🌟 CAMBIO AQUÍ: Usamos FindFirstObjectByType en lugar de FindObjectOfType
+            FruitManager manager = FindFirstObjectByType<FruitManager>();
+            if (manager != null)
+            {
+                manager.AllFruitCollected();
+            }
             
             Destroy(gameObject, 0.5f);
         }
     }
 }
+

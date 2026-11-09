@@ -10,6 +10,7 @@ public class FruitCollected : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
             
             FruitManager manager = FindFirstObjectByType<FruitManager>();
             if (manager != null)

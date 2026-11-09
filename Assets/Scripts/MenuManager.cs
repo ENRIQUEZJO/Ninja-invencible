@@ -14,6 +14,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
     public void ReiniciarJuego()
     {
         Scene scene = SceneManager.GetActiveScene();

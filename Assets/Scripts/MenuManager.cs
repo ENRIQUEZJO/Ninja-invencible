@@ -6,7 +6,6 @@ public class MenuManager : MonoBehaviour
     // Casilla para arrastrar el panel que contiene el botón de reinicio
     public GameObject pantallaFinJuego;
 
-    // 🌟 ASEGÚRATE DE QUE ESTA FUNCIÓN EXISTA Y SEA PUBLIC
     public void MostrarPantallaFin()
     {
         if (pantallaFinJuego != null)

@@ -10,13 +10,13 @@ public class FruitManager : MonoBehaviour
 
     void Awake()
     {
-        // Forzamos el reinicio manual de la variable matemática al cargar la escena
+        //Forzamos el reinicio manual de la variable matemática al cargar la escena
         frutasRecogidas = 0; 
     }
 
     void Start()
     {
-        // Aseguramos que el texto visual en pantalla muestre "Frutas: 0" al arrancar
+        //Aseguramos que el texto visual en pantalla muestre "Frutas: 0" al arrancar
         ActualizarTexto();
     }
 
